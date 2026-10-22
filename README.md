@@ -41,3 +41,7 @@ That installs CBMC 5.95.1, Frama-C 25.0 (Manganese) and GCC 13.
     python3 tool/summarize.py           # prints the summary in results/summary.txt
 
 All candidates are generated from `case_study/`, which is left unmodified; each candidate is evaluated in a temporary directory.
+
+## License
+
+MIT. See `LICENSE`.
