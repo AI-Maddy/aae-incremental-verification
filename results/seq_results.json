@@ -1,0 +1,520 @@
+{
+ "B1": {
+  "trajectory": [
+   {
+    "step": "S1",
+    "request": "Make lower saturation inclusive",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "clamp_cmd"
+    ],
+    "secs": 0.369,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "clamp_cmd"
+    ]
+   },
+   {
+    "step": "S2",
+    "request": "Rate limiter via delta",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "rate_limit"
+    ],
+    "secs": 0.355,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "rate_limit"
+    ]
+   },
+   {
+    "step": "S3",
+    "request": "Widen gain domain to [0,120] (gain 10/3)",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "gain"
+    ],
+    "secs": 0.367,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "gain",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S4",
+    "request": "Raise clamp upper limit to 120",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "clamp_cmd"
+    ],
+    "secs": 0.359,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "clamp_cmd",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S5",
+    "request": "Mode logic as single expression",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "mode_next"
+    ],
+    "secs": 0.308,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "mode_next"
+    ]
+   },
+   {
+    "step": "S6",
+    "request": "Set GAIN_K to 3 (now unused)",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [],
+    "secs": 0.0,
+    "candidate_truth": "correct",
+    "affected_B3": []
+   },
+   {
+    "step": "S7",
+    "request": "Ring index wrap without modulo",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "ring_push"
+    ],
+    "secs": 0.328,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "ring_push"
+    ]
+   },
+   {
+    "step": "S8",
+    "request": "Set RATE_STEP to 15",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [],
+    "secs": 0.0,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "rate_limit",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S9",
+    "request": "Gain 4x over [0,120] with output bound 480",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "gain"
+    ],
+    "secs": 0.328,
+    "candidate_truth": "defective",
+    "affected_B3": [
+     "gain",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S10",
+    "request": "Filter accumulates in 64 bits",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg"
+    ],
+    "secs": 0.492,
+    "candidate_truth": "defective",
+    "affected_B3": [
+     "filter_avg"
+    ]
+   }
+  ],
+  "final_oracle": [
+   "fail",
+   "fail"
+  ]
+ },
+ "B2": {
+  "trajectory": [
+   {
+    "step": "S1",
+    "request": "Make lower saturation inclusive",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.402,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "clamp_cmd"
+    ]
+   },
+   {
+    "step": "S2",
+    "request": "Rate limiter via delta",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.532,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "rate_limit"
+    ]
+   },
+   {
+    "step": "S3",
+    "request": "Widen gain domain to [0,120] (gain 10/3)",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.455,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "gain",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S4",
+    "request": "Raise clamp upper limit to 120",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.361,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "clamp_cmd",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S5",
+    "request": "Mode logic as single expression",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.283,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "mode_next"
+    ]
+   },
+   {
+    "step": "S6",
+    "request": "Set GAIN_K to 3 (now unused)",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.451,
+    "candidate_truth": "correct",
+    "affected_B3": []
+   },
+   {
+    "step": "S7",
+    "request": "Ring index wrap without modulo",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.44,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "ring_push"
+    ]
+   },
+   {
+    "step": "S8",
+    "request": "Set RATE_STEP to 15",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.494,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "rate_limit",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S9",
+    "request": "Gain 4x over [0,120] with output bound 480",
+    "accept": false,
+    "reason": "gate:control_step=fail",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.38,
+    "candidate_truth": "defective",
+    "affected_B3": [
+     "gain",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S10",
+    "request": "Filter accumulates in 64 bits",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg",
+     "clamp_cmd",
+     "gain",
+     "rate_limit",
+     "mode_next",
+     "actuator_cmd",
+     "ring_push",
+     "control_step"
+    ],
+    "secs": 3.562,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "filter_avg"
+    ]
+   }
+  ],
+  "final_oracle": [
+   "pass",
+   "pass"
+  ]
+ },
+ "B3": {
+  "trajectory": [
+   {
+    "step": "S1",
+    "request": "Make lower saturation inclusive",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "clamp_cmd"
+    ],
+    "secs": 0.369,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "clamp_cmd"
+    ]
+   },
+   {
+    "step": "S2",
+    "request": "Rate limiter via delta",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "rate_limit"
+    ],
+    "secs": 0.355,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "rate_limit"
+    ]
+   },
+   {
+    "step": "S3",
+    "request": "Widen gain domain to [0,120] (gain 10/3)",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "gain",
+     "control_step"
+    ],
+    "secs": 1.215,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "gain",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S4",
+    "request": "Raise clamp upper limit to 120",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "clamp_cmd",
+     "control_step"
+    ],
+    "secs": 1.17,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "clamp_cmd",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S5",
+    "request": "Mode logic as single expression",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "mode_next"
+    ],
+    "secs": 0.308,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "mode_next"
+    ]
+   },
+   {
+    "step": "S6",
+    "request": "Set GAIN_K to 3 (now unused)",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [],
+    "secs": 0.0,
+    "candidate_truth": "correct",
+    "affected_B3": []
+   },
+   {
+    "step": "S7",
+    "request": "Ring index wrap without modulo",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "ring_push"
+    ],
+    "secs": 0.328,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "ring_push"
+    ]
+   },
+   {
+    "step": "S8",
+    "request": "Set RATE_STEP to 15",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "rate_limit",
+     "control_step"
+    ],
+    "secs": 1.246,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "rate_limit",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S9",
+    "request": "Gain 4x over [0,120] with output bound 480",
+    "accept": false,
+    "reason": "gate:control_step=fail",
+    "rerun": [
+     "gain",
+     "control_step"
+    ],
+    "secs": 1.196,
+    "candidate_truth": "defective",
+    "affected_B3": [
+     "gain",
+     "control_step"
+    ]
+   },
+   {
+    "step": "S10",
+    "request": "Filter accumulates in 64 bits",
+    "accept": true,
+    "reason": "ok",
+    "rerun": [
+     "filter_avg"
+    ],
+    "secs": 0.492,
+    "candidate_truth": "correct",
+    "affected_B3": [
+     "filter_avg"
+    ]
+   }
+  ],
+  "final_oracle": [
+   "pass",
+   "pass"
+  ]
+ }
+}

@@ -1,0 +1,91 @@
+N 99 Counter({'defective': 52, 'correct': 47}) disagree []
+
+F1-mutant: n=60 defective=34 correct=26
+  B1         FAR 0/34 [0.00,0.10]  FRR 3/26  oblig 60  cpu 20.9s
+  B2         FAR 0/34 [0.00,0.10]  FRR 3/26  oblig 480  cpu 196.2s
+  B3         FAR 0/34 [0.00,0.10]  FRR 3/26  oblig 60  cpu 20.9s
+  B3-sys     FAR 0/34 [0.00,0.10]  FRR 3/26  oblig 60  cpu 20.9s
+  B3-noperm  FAR 0/34 [0.00,0.10]  FRR 3/26  oblig 60  cpu 20.9s
+
+F1-refactor: n=13 defective=3 correct=10
+  B1         FAR 0/3 [0.00,0.56]  FRR 0/10  oblig 13  cpu 4.7s
+  B2         FAR 0/3 [0.00,0.56]  FRR 0/10  oblig 104  cpu 44.0s
+  B3         FAR 0/3 [0.00,0.56]  FRR 0/10  oblig 13  cpu 4.7s
+  B3-sys     FAR 0/3 [0.00,0.56]  FRR 0/10  oblig 13  cpu 4.7s
+  B3-noperm  FAR 0/3 [0.00,0.56]  FRR 0/10  oblig 13  cpu 4.7s
+
+F2-contract: n=10 defective=4 correct=6
+  B1         FAR 4/4 [0.51,1.00]  FRR 1/6  oblig 10  cpu 3.4s
+  B2         FAR 0/4 [0.00,0.49]  FRR 2/6  oblig 80  cpu 33.5s
+  B3         FAR 0/4 [0.00,0.49]  FRR 2/6  oblig 20  cpu 12.0s
+  B3-sys     FAR 0/4 [0.00,0.49]  FRR 2/6  oblig 20  cpu 12.0s
+  B3-noperm  FAR 0/4 [0.00,0.49]  FRR 2/6  oblig 20  cpu 12.0s
+
+F3-config: n=10 defective=6 correct=4
+  B1         FAR 6/6 [0.61,1.00]  FRR 0/4  oblig 0  cpu 0.0s
+  B2         FAR 3/6 [0.19,0.81]  FRR 1/4  oblig 80  cpu 32.4s
+  B3         FAR 3/6 [0.19,0.81]  FRR 1/4  oblig 22  cpu 11.3s
+  B3-sys     FAR 0/6 [0.00,0.39]  FRR 1/4  oblig 12  cpu 5.9s
+  B3-noperm  FAR 3/6 [0.19,0.81]  FRR 1/4  oblig 22  cpu 11.3s
+
+F4-tamper: n=6 defective=5 correct=1
+  B1         FAR 0/5 [-0.00,0.43]  FRR 1/1  oblig 0  cpu 0.0s
+  B2         FAR 0/5 [-0.00,0.43]  FRR 1/1  oblig 0  cpu 0.0s
+  B3         FAR 0/5 [-0.00,0.43]  FRR 1/1  oblig 0  cpu 0.0s
+  B3-sys     FAR 0/5 [-0.00,0.43]  FRR 1/1  oblig 0  cpu 0.0s
+  B3-noperm  FAR 2/5 [0.12,0.77]  FRR 1/1  oblig 12  cpu 6.0s
+
+ALL: n=99 defective=52 correct=47
+  B1         FAR 10/52 [0.11,0.32]  FRR 5/47  oblig 83  cpu 29.1s
+  B2         FAR 3/52 [0.02,0.16]  FRR 7/47  oblig 744  cpu 306.1s
+  B3         FAR 3/52 [0.02,0.16]  FRR 7/47  oblig 115  cpu 49.0s
+  B3-sys     FAR 0/52 [0.00,0.07]  FRR 7/47  oblig 105  cpu 43.6s
+  B3-noperm  FAR 5/52 [0.04,0.21]  FRR 7/47  oblig 127  cpu 55.0s
+
+B1 accepted defective: ['K1', 'K4', 'K5', 'K7', 'G1', 'G3', 'G4', 'G6', 'G7', 'G10']
+B3 accepted defective: ['G3', 'G6', 'G10']
+B3-sys accepted defective: []
+B3-noperm accepted defective: ['G3', 'G6', 'G10', 'T3', 'T6']
+B3 rejected correct: [('K8', 'gate:actuator_cmd=fail'), ('K10', 'gate:control_step=fail'), ('G9', 'gate:control_step=fail'), ('T4', 'scope'), ('M-CRP:filter_avg:L1c16:0->1', 'gate:filter_avg=fail'), ('M-AOR:filter_avg:L7c12:/->*', 'gate:filter_avg=fail'), ('M-CRP:filter_avg:L7c15:NSAMP->(NSAMP - 1)', 'gate:filter_avg=fail')]
+B3-sys rejected correct extra: []
+B2 vs B3 decisions differ: []
+B3 affected-set size dist: Counter({1: 76, 2: 19, 3: 3, 4: 1})
+R1 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['clamp_cmd'] [] []
+R2 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['clamp_cmd'] [] []
+R3 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['clamp_cmd'] [] []
+R4 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['filter_avg'] [] []
+R5 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['rate_limit'] [] []
+R6 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['ring_push'] [] []
+R7 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['ring_push'] [] []
+R8 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['gain'] [] []
+R9 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['mode_next'] [] []
+R10 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['filter_avg'] [] []
+W1 defective fail fail {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['mode_next'] [] []
+W2 defective fail fail {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['rate_limit'] [] []
+W3 defective fail fail {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['actuator_cmd'] [] []
+K1 defective fail fail {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['clamp_cmd', 'control_step'] [] []
+K2 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['clamp_cmd', 'control_step'] [] []
+K3 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['gain', 'control_step'] [] []
+K4 defective fail fail {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['gain', 'control_step'] [] []
+K5 defective fail fail {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['rate_limit', 'control_step'] [] []
+K6 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['rate_limit', 'control_step'] [] []
+K7 defective fail fail {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['mode_next', 'control_step'] [] []
+K8 correct pass pass {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['actuator_cmd', 'control_step'] [] []
+K9 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['filter_avg', 'control_step'] [] []
+K10 correct pass pass {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['gain', 'control_step'] [] []
+G1 defective fail fail {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['gain'] [] []
+G2 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['gain'] [] []
+G3 defective fail fail {'B1': True, 'B2': True, 'B3': True, 'B3-sys': False, 'B3-noperm': True} ['ring_push', 'control_step'] [] ['syscontract:control_step']
+G4 defective fail fail {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['rate_limit', 'control_step'] [] []
+G5 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['rate_limit', 'control_step'] [] []
+G6 defective fail fail {'B1': True, 'B2': True, 'B3': True, 'B3-sys': False, 'B3-noperm': True} ['filter_avg', 'control_step'] [] ['syscontract:control_step']
+G7 defective fail fail {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['clamp_cmd', 'gain', 'control_step'] [] []
+G8 correct pass pass {'B1': True, 'B2': True, 'B3': True, 'B3-sys': True, 'B3-noperm': True} ['clamp_cmd', 'gain', 'control_step'] [] []
+G9 correct pass pass {'B1': True, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['gain', 'rate_limit', 'actuator_cmd', 'control_step'] [] ['syscontract:control_step']
+G10 defective fail fail {'B1': True, 'B2': True, 'B3': True, 'B3-sys': False, 'B3-noperm': True} ['ring_push', 'control_step'] [] ['syscontract:control_step']
+T1 defective fail fail {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['clamp_cmd', 'gain', 'control_step'] ['contract:clamp_cmd', 'contract:gain'] []
+T2 defective fail fail {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['gain', 'control_step'] ['contract:gain'] []
+T3 defective fail fail {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': True} ['rate_limit'] ['harness'] []
+T4 correct pass pass {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['clamp_cmd', 'actuator_cmd'] ['code:actuator_cmd'] []
+T5 defective fail fail {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': False} ['rate_limit', 'control_step'] ['config:RATE_STEP'] []
+T6 defective fail fail {'B1': False, 'B2': False, 'B3': False, 'B3-sys': False, 'B3-noperm': True} ['rate_limit', 'control_step'] ['contract:control_step', 'config:RATE_STEP'] ['syscontract:control_step']
